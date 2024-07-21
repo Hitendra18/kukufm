@@ -1,6 +1,7 @@
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
-import AudiobookCard from "./AudiobookCard";
 import { useRef } from "react";
+
+import AudiobookCard from "../misc/AudiobookCard";
 
 function HorizontalSlider({ data }) {
   const sliderRef = useRef(null);

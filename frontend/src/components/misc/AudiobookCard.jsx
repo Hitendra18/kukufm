@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+
 import Rating from "./Rating";
-import timeAgo from "../utils/timeAgo";
+import timeAgo from "../../utils/timeAgo";
 
 const AudiobookCard = ({ audiobook, showCategory = false }) => {
   console.log(audiobook);

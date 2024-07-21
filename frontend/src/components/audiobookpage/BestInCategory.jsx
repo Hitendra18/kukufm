@@ -1,5 +1,5 @@
 import { MdChevronRight } from "react-icons/md";
-import HorizontalSlider from "./HorizontalSlider";
+import HorizontalSlider from "../homepage/HorizontalSlider";
 
 const BestInCategory = ({ category, categoryData }) => {
 

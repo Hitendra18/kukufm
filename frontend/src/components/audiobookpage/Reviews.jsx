@@ -1,9 +1,9 @@
 import { IoClose } from "react-icons/io5";
-import timeAgo from "../utils/timeAgo";
-import Rating from "./Rating";
+import timeAgo from "../../utils/timeAgo";
+import Rating from "../misc/Rating";
 import { useState } from "react";
 import { FaStar } from "react-icons/fa";
-import { usePostReview } from "../services/mutation/review";
+import { usePostReview } from "../../services/mutation/review";
 import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 

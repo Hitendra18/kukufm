@@ -1,14 +1,15 @@
 import { Link, useParams } from "react-router-dom";
-import Layout from "../components/Layout";
-import { useGetSingleAudiobook } from "../services/query/audiobook";
 import { IoHomeOutline } from "react-icons/io5";
-import Rating from "../components/Rating";
-import { useEffect, useState } from "react";
 import { FaHeadphonesAlt, FaRegComments } from "react-icons/fa";
+import { useEffect, useState } from "react";
+
+import Layout from "../components/misc/Layout";
+import { useGetSingleAudiobook } from "../services/query/audiobook";
+import Rating from "../components/misc/Rating";
 import timeAgo from "../utils/timeAgo";
-import Chapters from "../components/Chapters";
-import Reviews from "../components/Reviews";
-import AudioPlayer from "../components/AudioPlayer";
+import Chapters from "../components/audiobookpage/Chapters";
+import Reviews from "../components/audiobookpage/Reviews";
+import AudioPlayer from "../components/audiobookpage/AudioPlayer";
 
 const AudiobookPage = () => {
   const { id } = useParams();

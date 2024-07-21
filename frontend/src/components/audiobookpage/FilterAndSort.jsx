@@ -1,5 +1,5 @@
 import { BsFilter, BsSortDown } from "react-icons/bs";
-import { useSearchQueryState } from "../contexts/useSearchQueryState";
+import { useSearchQueryState } from "../../contexts/useSearchQueryState";
 
 const orderByOptions = [
   { label: "Highest Rated", value: "highest_rated" },
