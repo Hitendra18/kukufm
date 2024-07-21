@@ -17,10 +17,6 @@ export const fetchAllAudiobooks = async ({
     const categoriesString = categories.join(",");
     const languagesString = languages.join(",");
 
-    console.log(
-      "Query sent for:",
-      `/api/audiobook?categories=${categoriesString}&languages=${languagesString}&search=${search}&orderBy=${orderBy}&category_rank=${category_rank}&limit=${limit}&page=${page}`
-    );
     const { data } = await axiosInstance.get(
       `/api/audiobook?categories=${categoriesString}&languages=${languagesString}&search=${search}&orderBy=${orderBy}&category_rank=${category_rank}&limit=${limit}&page=${page}`
     );
@@ -32,7 +28,6 @@ export const fetchAllAudiobooks = async ({
 
 export const fetchSingleAudiobook = async (id) => {
   try {
-    console.log("Query sent for:", `/api/audiobook/${id}`);
     const { data } = await axiosInstance.get(`/api/audiobook/${id}`);
     return data;
   } catch (error) {

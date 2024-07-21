@@ -16,7 +16,6 @@ const Navbar = () => {
     const trimmedSearch = search.trim();
     if (trimmedSearch.length === 0) return;
 
-    console.log("setting trim search", trimmedSearch);
     setFetchData(true);
     setSearch(trimmedSearch);
     navigate(`/search`);

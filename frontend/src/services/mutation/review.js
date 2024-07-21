@@ -8,7 +8,6 @@ export const usePostReview = (onPostReviewSuccess) => {
     },
     onSuccess: (data) => {
       if (data) {
-        console.log("Posted Review Successfully", data);
         onPostReviewSuccess();
       }
     },
