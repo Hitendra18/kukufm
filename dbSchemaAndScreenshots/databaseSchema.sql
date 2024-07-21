@@ -55,7 +55,6 @@ CSV HEADER;
 select * from review;
 
 
-
 -----------------------------------------------------------------------
 
 create view view_audiobook

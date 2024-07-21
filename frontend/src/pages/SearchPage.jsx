@@ -57,6 +57,7 @@ const SearchPage = () => {
 
   useEffect(() => {
     refetch();
+    console.log("inside useEffect");
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [refetch, orderBy, page]);
 
@@ -111,7 +112,10 @@ const SearchPage = () => {
               />
             </div>
             <button
-              onClick={() => setPage(1)}
+              onClick={() => {
+                setPage(1);
+                refetch();
+              }}
               className="bg-blue-500 hover:bg-blue-800 text-white font-semibold px-3 py-1 rounded-md flex items-center justify-center mx-auto lg:text-lg"
             >
               Apply

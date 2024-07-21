@@ -1,10 +1,11 @@
-import "./App.css";
+import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
+
+import "./App.css";
 import HomePage from "./pages/HomePage";
 import SearchPage from "./pages/SearchPage";
 import AudiobookPage from "./pages/AudiobookPage";
 import SearchQueryProvider from "./contexts/SearchQueryProvider";
-import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (

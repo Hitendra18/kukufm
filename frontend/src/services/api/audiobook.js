@@ -16,7 +16,10 @@ export const fetchAllAudiobooks = async ({
   try {
     const categoriesString = categories.join(",");
     const languagesString = languages.join(",");
-
+    console.log(
+      "query for",
+      `/api/audiobook?categories=${categoriesString}&languages=${languagesString}&search=${search}&orderBy=${orderBy}&category_rank=${category_rank}&limit=${limit}&page=${page}`
+    );
     const { data } = await axiosInstance.get(
       `/api/audiobook?categories=${categoriesString}&languages=${languagesString}&search=${search}&orderBy=${orderBy}&category_rank=${category_rank}&limit=${limit}&page=${page}`
     );
