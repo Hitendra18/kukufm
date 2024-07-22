@@ -24,9 +24,12 @@ const Navbar = () => {
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900 sticky top-0 z-10">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        {/* Logo */}
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src={Logo} className="h-10" alt="KUKU FM Logo" />
         </a>
+
+        {/* Menu and search */}
         <div className="flex md:order-2">
           <button
             type="button"
@@ -48,7 +51,6 @@ const Navbar = () => {
                 d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
               />
             </svg>
-            <span className="sr-only">Search</span>
           </button>
           <div className="relative hidden md:block">
             <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -107,6 +109,8 @@ const Navbar = () => {
             </svg>
           </button>
         </div>
+
+        {/* drop down menu */}
         <div
           className={`items-center justify-between ${
             isMenuOpen ? "block" : "hidden"

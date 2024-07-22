@@ -11,6 +11,12 @@ export const postReview = async ({
   rating,
 }) => {
   try {
+    console.log(`POST /api/review`, {
+      audiobook_id,
+      full_name,
+      review_text,
+      rating,
+    });
     const { data } = await axiosInstance.post("/api/review", {
       audiobook_id,
       full_name,

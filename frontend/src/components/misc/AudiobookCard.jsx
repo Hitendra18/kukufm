@@ -9,6 +9,7 @@ const AudiobookCard = ({ audiobook, showCategory = false }) => {
       to={`/audiobook/${audiobook?.id}`}
       className="min-w-40 lg:min-w-60 p-1 pb-3 max-w-min-w-40 rounded-lg shadow bg-gray-800 hover:scale-[.98] transition-all duration-300 hover:bg-[rgb(23,31,41)]"
     >
+      {/* render cover image */}
       <div className="w-full h-40 lg:h-60">
         <span>
           <img
@@ -18,7 +19,11 @@ const AudiobookCard = ({ audiobook, showCategory = false }) => {
           />
         </span>
       </div>
+
+      {/* rest of the information */}
       <div className="px-1 w-full">
+
+        {/* title, author and created at */}
         <div className="">
           <h5 className="text-sm lg:text-lg font-semibold tracking-tight text-white truncate">
             {audiobook?.title}
@@ -30,6 +35,8 @@ const AudiobookCard = ({ audiobook, showCategory = false }) => {
             {timeAgo(audiobook?.created_at)}
           </p>
         </div>
+
+        {/* rating and duration data */}
         <div className="mt-2 flex items-center justify-between">
           <div className="w-1/2 lg:w-[40%] flex items-center gap-1 lg:gap-2">
             <Rating rating={(audiobook?.rating * 100) / 5} />
@@ -46,6 +53,8 @@ const AudiobookCard = ({ audiobook, showCategory = false }) => {
             )}
           </p>
         </div>
+
+        {/* language and category tags */}
         <div className="mt-2 lg:mt-4 flex justify-between">
           <p className="text-[10px] lg:text-xs text-blue-800 rounded-md px-2 py-0.5 font-bold bg-blue-200">
             {audiobook?.language}

@@ -39,6 +39,7 @@ const App = () => {
           }
         />
       </Routes>
+      {/* configure for react-hot-toast */}
       <Toaster toastOptions={{ duration: 1500 }} />
     </div>
   );

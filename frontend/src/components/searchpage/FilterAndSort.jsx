@@ -16,6 +16,7 @@ const FilterAndSort = ({ setFilterOpen }) => {
   return (
     <div>
       <div className="flex gap-2 lg:gap-4">
+        {/* filter button */}
         <button
           onClick={() => setFilterOpen((prev) => !prev)}
           className="px-3 py-1.5 lg:px-4 rounded-md text-gray-500 hover:text-gray-900 hover:bg-gray-500 bg-gray-900"
@@ -26,6 +27,7 @@ const FilterAndSort = ({ setFilterOpen }) => {
         <div className="px-3 py-1.5 lg:px-4 rounded-md text-gray-500 hover:text-gray-900 hover:bg-gray-500 bg-gray-900 relative group text-start">
           <BsSortDown className="h-6 w-6 lg:h-8 lg:w-8" />
 
+          {/* order by dropdown list */}
           <ul className="absolute z-20 bg-gray-900 text-gray-400 text-sm lg:text-xl right-0 top-full w-32 lg:w-56 rounded-lg py-2 overflow-hidden hidden group-hover:block group-focus:block">
             {orderByOptions.map((item, ind) => (
               <button

@@ -1,8 +1,7 @@
 import { MdChevronRight } from "react-icons/md";
-import HorizontalSlider from "../homepage/HorizontalSlider";
+import HorizontalSlider from "./HorizontalSlider";
 
 const BestInCategory = ({ category, categoryData }) => {
-
   return (
     <div className="w-full px-2 lg:px-6">
       <h4 className="text-lg lg:text-2xl font-semibold flex items-center mb-1 text-[#f1f1ff]">

@@ -12,6 +12,7 @@ const Chapters = ({
       {data && data.length > 0 && (
         <div className="flex flex-col justify-between lg:gap-0.5 gap-0 mb-6 lg:mb-0">
           <div className="flex flex-col lg:gap-0.5 gap-0 pt-4 flex-grow">
+            {/* render all of the chapters */}
             {data.map((item, ind) => (
               <button
                 onClick={() => {
@@ -27,6 +28,7 @@ const Chapters = ({
               >
                 <div className="flex items-center gap-2">
                   <div className="border h-8 w-8 lg:h-10 lg:w-10 lg:p-2 p-1.5 rounded-full">
+                    {/* toggle play/pause icon */}
                     {isPlaying && selectedChapter?.id === item?.id ? (
                       <CiPause1 className="h-full w-full" />
                     ) : (
@@ -35,6 +37,7 @@ const Chapters = ({
                   </div>
                   <p>{item?.chapter_name}</p>
                 </div>
+                {/* render formatted duration of track */}
                 <p>
                   {item?.duration?.hours && <>{item?.duration?.hours}:</>}
                   {item?.duration?.minutes && (

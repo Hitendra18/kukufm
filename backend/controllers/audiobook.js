@@ -8,6 +8,7 @@ const { isNumber } = require("../utils/isNumber");
 
 const getAudiobooks = async (req, res, next) => {
   try {
+    // options that that can be used to order data
     const orderByOptions = {
       highest_rated: "rating desc",
       lowest_rated: "rating",
@@ -17,6 +18,7 @@ const getAudiobooks = async (req, res, next) => {
       shortest: "total_duration",
     };
 
+    // extract query string parameters
     const {
       categories,
       languages,
@@ -30,6 +32,7 @@ const getAudiobooks = async (req, res, next) => {
     let query = GET_AUDIOBOOKS;
     const queryParams = [];
 
+    // filter out categories
     if (categories) {
       const categoryArray = categories.split(",");
       query += ` AND (`;
@@ -44,6 +47,7 @@ const getAudiobooks = async (req, res, next) => {
       });
     }
 
+    // filter out languages
     if (languages) {
       const languageArray = languages.split(",");
       query += ` AND (`;
@@ -58,6 +62,7 @@ const getAudiobooks = async (req, res, next) => {
       });
     }
 
+    // filter out search parameters
     if (search) {
       const searchSegment = `%${search}%`;
       queryParams.push(searchSegment, searchSegment);
@@ -66,15 +71,18 @@ const getAudiobooks = async (req, res, next) => {
       } OR title ILIKE $${queryParams.length})`;
     }
 
+    // filter out based on category rank
     if (category_rank && isNumber(category_rank)) {
       queryParams.push(Number(category_rank));
       query += ` AND category_rank <= $${queryParams.length}`;
     }
 
+    // order the data
     if (orderBy && orderByOptions[orderBy]) {
       query += ` ORDER BY ${orderByOptions[orderBy]}`;
     }
 
+    // limit the data rows
     if (limit && isNumber(limit)) {
       if (page && isNumber(page)) {
         queryParams.push((Number(page) - 1) * Number(limit));
@@ -82,11 +90,6 @@ const getAudiobooks = async (req, res, next) => {
       }
       queryParams.push(Number(limit));
       query += ` LIMIT $${queryParams.length}`;
-    }
-
-    if (category_rank && isNumber(category_rank)) {
-      queryParams.push(Number(category_rank));
-      query += ` AND category_rank <= $${queryParams.length}`;
     }
 
     const result = await db.query(query, queryParams);
@@ -101,6 +104,8 @@ const getAudiobooks = async (req, res, next) => {
 const getSingleAudiobook = async (req, res, next) => {
   try {
     const { id } = req.params;
+
+    // check if id is provided
     if (!id) {
       const error = new Error("Id required");
       return next(error);
@@ -108,16 +113,19 @@ const getSingleAudiobook = async (req, res, next) => {
 
     const result = {};
 
+    // fetch the audiobook
     let audiobookQuery = GET_AUDIOBOOKS;
     audiobookQuery += ` AND id = $1`;
     const audiobook = await db.query(audiobookQuery, [id]);
     if (audiobook.rows.length === 1) result.audiobook = audiobook.rows[0];
 
+    // fet all of the chapters
     let chaptersQuery = GET_AUDIOBOOK_CHAPTERS;
     chaptersQuery += ` AND audiobook_id = $1`;
     const chapters = await db.query(chaptersQuery, [id]);
     if (chapters.rows.length > 0) result.chapters = chapters.rows;
 
+    // fetch all of the reviews
     let reviewsQuery = GET_AUDIOBOOK_REVIEWS;
     reviewsQuery += ` AND audiobook_id = $1 ORDER BY created_at DESC`;
     const reviews = await db.query(reviewsQuery, [id]);

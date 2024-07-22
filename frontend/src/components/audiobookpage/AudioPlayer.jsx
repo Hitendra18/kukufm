@@ -16,7 +16,6 @@ const AudioPlayer = ({
   data,
 }) => {
   const audioRef = useRef(null);
-  // const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(1);
@@ -143,7 +142,7 @@ const AudioPlayer = ({
             />
             <span>{formatTime(duration)}</span>
           </div>
-          {/* volume */}
+          {/* volume control */}
           <div className="hidden lg:flex items-center">
             <button
               onClick={toggleMute}
@@ -167,7 +166,7 @@ const AudioPlayer = ({
           </div>
         </div>
 
-        {/* controls */}
+        {/* play/pause forward/backward controls */}
         <div className="flex justify-center gap-5">
           <button
             onClick={handlePrev}

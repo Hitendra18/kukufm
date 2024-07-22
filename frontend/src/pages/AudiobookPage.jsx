@@ -58,6 +58,7 @@ const AudiobookPage = () => {
                   {data?.audiobook?.author_name}
                 </h2>
               </div>
+
               {/* rating, category, duration, language */}
               <div className="w-full px-4 lg:px-0">
                 <div className="flex items-center justify-center mt-3 lg:mt-2 gap-2">
@@ -96,6 +97,7 @@ const AudiobookPage = () => {
                   </div>
                 </div>
               </div>
+
               {/* Description */}
               <div className="w-full mt-4">
                 <h2 className="text-xl text-gray-400 font-medium">
@@ -106,6 +108,7 @@ const AudiobookPage = () => {
                 </p>
               </div>
             </div>
+
             {/* right */}
             <div className="lg:flex-grow lg:border-l lg:flex lg:flex-col border-l-gray-500">
               {/* tab */}
@@ -140,9 +143,11 @@ const AudiobookPage = () => {
                   </ul>
                 </div>
               </div>
+
               {/* content */}
               <div className="lg:flex-grow lg:overflow-scroll custom-hide-scrollbar pb-2 lg:pb-0">
                 <div className="lg:h-full lg:flex lg:flex-col">
+                  {/* conditional rendering content based on selected tab */}
                   {activeTab === "chapters" ? (
                     <Chapters
                       data={data?.chapters}
@@ -154,6 +159,8 @@ const AudiobookPage = () => {
                   ) : (
                     <Reviews data={data?.reviews} />
                   )}
+
+                  {/* render audio player */}
                   <AudioPlayer
                     selectedChapter={selectedChapter}
                     setSelectedChapter={setSelectedChapter}

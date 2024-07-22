@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import App from "./App.jsx";
 import "./index.css";
 
+// configure @tanstack/react-query
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {

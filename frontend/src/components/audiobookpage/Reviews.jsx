@@ -38,6 +38,8 @@ const Reviews = ({ data }) => {
       >
         Post Review
       </button>
+
+      {/* Post review popup */}
       <div
         className={`w-[80%] lg:w-[500px] text-white p-2 pb-4 fixed rounded-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#111827] space-y-4 ${
           showPopup ? "block" : "hidden"
@@ -54,6 +56,7 @@ const Reviews = ({ data }) => {
             <IoClose className="h-full w-full" />
           </button>
         </div>
+        {/* post review form */}
         <form onSubmit={handleSubmit} className="shadow-md rounded-lg">
           <div className="flex flex-col gap-4">
             <input
@@ -69,6 +72,7 @@ const Reviews = ({ data }) => {
               className="p-2 border bg-slate-800 outline-none border-gray-300 rounded resize-none"
             ></textarea>
             <div className="flex items-center gap-1">
+              {/* rating stars */}
               {[...Array(5)].map((_, index) => {
                 const starRating = index + 1;
                 return (
@@ -98,6 +102,8 @@ const Reviews = ({ data }) => {
           </div>
         </form>
       </div>
+
+      {/* render all of the reviews */}
       <div className="space-y-2">
         {data &&
           data.length > 0 &&

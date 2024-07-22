@@ -7,7 +7,7 @@ import { useSearchQueryState } from "../contexts/useSearchQueryState";
 import AudiobookCard from "../components/misc/AudiobookCard";
 import Layout from "../components/misc/Layout";
 import { useGetAllAudiobooks } from "../services/query/audiobook";
-import FilterAndSort from "../components/audiobookpage/FilterAndSort";
+import FilterAndSort from "../components/searchpage/FilterAndSort";
 
 const animatedComponents = makeAnimated();
 
@@ -76,12 +76,15 @@ const SearchPage = () => {
         </div>
       ) : (
         <div className="px-2 lg:px-6">
+          {/* sorting */}
           <div className="flex items-center justify-between mb-2 lg:mb-4 relative">
             <p className="text-xl lg:text-3xl text-white font-semibold">
               Your search results
             </p>
             <FilterAndSort setFilterOpen={setFilterOpen} refetch={refetch} />
           </div>
+
+          {/* category and language filters */}
           <div
             className={`mb-2 lg:mb-6 text-sm ${
               filterOpen ? "" : "hidden"
@@ -121,6 +124,8 @@ const SearchPage = () => {
               Apply
             </button>
           </div>
+
+          {/* Error screen */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6">
             {data && data.length > 0 ? (
               data.map((item, id) => (
@@ -137,6 +142,8 @@ const SearchPage = () => {
               </div>
             )}
           </div>
+
+          {/* Pagination */}
           {data && data.length > 0 && (
             <div className="text-slate-200 text-center flex items-center justify-center mt-6 lg:mt-10 gap-2">
               <button

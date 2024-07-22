@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import BestInCategory from "../components/audiobookpage/BestInCategory";
+import BestInCategory from "../components/homepage/BestInCategory";
 import { useGetAllAudiobooks } from "../services/query/audiobook";
 import Layout from "../components/misc/Layout";
 
@@ -27,7 +27,9 @@ const HomePage = () => {
   return (
     <Layout>
       {isLoading ? (
-        <div className="flex items-center justify-center h-[300px] text-white text-3xl">Loading...</div>
+        <div className="flex items-center justify-center h-[300px] text-white text-3xl">
+          Loading...
+        </div>
       ) : (
         <div className="space-y-4 lg:space-y-6 ">
           {data?.length &&

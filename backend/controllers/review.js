@@ -4,6 +4,8 @@ const { INSERT_REVIEW } = require("../db/queries");
 const postReview = async (req, res, next) => {
   try {
     const { audiobook_id, full_name, review_text, rating } = req.body;
+
+    // all of these are required fields
     if (!audiobook_id || !full_name || !review_text || !rating) {
       const error = new Error("All fields are required");
       return next(error);
